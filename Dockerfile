@@ -1,3 +1,4 @@
+
 FROM jenkins/jenkins:lts
 MAINTAINER Benedikt Kristinsson <benedikt@lokun.is>
 
@@ -12,7 +13,14 @@ RUN apt-get update && \
     apt-get update && \
     apt-get install -y docker-ce-cli
 
-RUN usermod -u 1207 jenkins
-RUN groupadd docker -g 998 && usermod -a -G docker jenkins
+ARG SUDOIS_JENKINS_UID=1207
+ARG SUDOIS_JENKINS_GID=1207
+ARG SUDOIS_JENKINS_HOME=/var/jenkins
+ARG DOCKER_SOCK_GID=700
+
+RUN usermod -u ${SUDOIS_JENKINS_UID} -d ${SUDOIS_JENKINS_HOME_DIR} -m jenkins && \
+      groupmod -g ${SUDOIS_JENKINS_GID} jenkins
+RUN groupadd docker -g ${DOCKER_SOCK_GID} && \
+      usermod -a -G docker jenkins
 
 USER jenkins
