@@ -17,7 +17,7 @@ ARG SUDOIS_JENKINS_UID=1207
 ARG SUDOIS_JENKINS_GID=1207
 ARG DOCKER_SOCK_GID
 
-RUN usermod -u ${SUDOIS_JENKINS_UID} -d ${SUDOIS_JENKINS_HOME_DIR} -m jenkins && \
+RUN usermod -u ${SUDOIS_JENKINS_UID} jenkins && \
       groupmod -g ${SUDOIS_JENKINS_GID} jenkins
 RUN groupadd docker -g ${DOCKER_SOCK_GID} && \
       usermod -a -G docker jenkins
