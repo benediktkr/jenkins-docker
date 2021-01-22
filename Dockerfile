@@ -15,7 +15,7 @@ RUN apt-get update && \
 
 ARG SUDOIS_JENKINS_UID=1207
 ARG SUDOIS_JENKINS_GID=1207
-ARG DOCKER_SOCK_GID
+ARG DOCKER_SOCK_GID=998
 
 RUN usermod -u ${SUDOIS_JENKINS_UID} jenkins && \
       groupmod -g ${SUDOIS_JENKINS_GID} jenkins
