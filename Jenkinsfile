@@ -3,6 +3,10 @@ pipeline {
     triggers {
         cron('H 17 * * *')
     }
+    options {
+        timestamps()
+        ansiColor("xterm")
+    }
     stages {
         stage('build') {
             steps {
