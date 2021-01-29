@@ -11,7 +11,10 @@ RUN apt-get update && \
     apt-get install -y ca-certificates software-properties-common && \
     apt-add-repository "deb [arch=amd64] https://download.docker.com/linux/debian $(lsb_release -cs) stable" && \
     apt-get update && \
-    apt-get install -y docker-ce-cli sudo
+    apt-get install -y docker-ce-cli sudo && \
+    apt-get install -y python3.9 python3.9-pip python3.9-dev python3.9-venv && \
+    pip install poetry
+
 
 ARG SUDOIS_JENKINS_UID=1207
 ARG SUDOIS_JENKINS_GID=1207
