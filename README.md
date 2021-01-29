@@ -1,6 +1,6 @@
 # jenkins-docker
 
-![build status](https://jenkins.sudo.is/buildStatus/icon?job=docker_images%2Fjenkins-docker&style=flat-square)
+[![Build Status](https://jenkins.sudo.is/buildStatus/icon?job=ben%2Fjenkins-docker%2Fmaster&style=flat-square)](https://jenkins.sudo.is/job/ben/job/jenkins-docker/job/master/)
 
 just the official `jenkins/jenkins:lts` docker image (debian) with the `docker-ce-cli` package installed, and some faffing with userids.
 

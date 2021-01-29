@@ -25,4 +25,6 @@ RUN usermod -u ${SUDOIS_JENKINS_UID} jenkins && \
 RUN groupadd docker -g ${DOCKER_SOCK_GID} && \
       usermod -a -G docker jenkins
 
+ENV TZ Europe/Berlin
+
 USER jenkins
