@@ -4,7 +4,7 @@ pipeline {
         cron('H 17 * * *')
     }
     stages {
-        stage('buid') {
+        stage('build') {
             steps {
                 sh 'docker build -t benediktkr/jenkins:lts .'
             }
