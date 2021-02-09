@@ -1,6 +1,9 @@
-
 FROM jenkins/jenkins:lts
 MAINTAINER Benedikt Kristinsson <benedikt@lokun.is>
+
+ENV DEBIAN_FRONTEND noninteractive
+ENV TZ Europe/Berlin
+ENV TERM=xterm-256color
 
 USER 0
 
@@ -24,7 +27,5 @@ RUN usermod -u ${SUDOIS_JENKINS_UID} jenkins && \
       groupmod -g ${SUDOIS_JENKINS_GID} jenkins
 RUN groupadd docker -g ${DOCKER_SOCK_GID} && \
       usermod -a -G docker jenkins
-
-ENV TZ Europe/Berlin
 
 USER jenkins
