@@ -15,8 +15,9 @@ RUN apt-get update && \
     apt-add-repository "deb [arch=amd64] https://download.docker.com/linux/debian $(lsb_release -cs) stable" && \
     apt-get update && \
     apt-get install -y docker-ce-cli sudo && \
-    apt-get install -y python3 python3-pip python3-dev python3-venv && \
-    python3 -m pip install poetry pyyaml
+    apt-get install -y python3 python3-pip python3-dev python3-venv
+
+RUN python3 -m pip install poetry pyyaml loguru
 
 
 ARG SUDOIS_JENKINS_UID=1207
