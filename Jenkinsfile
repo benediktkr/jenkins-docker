@@ -1,24 +1,3 @@
-pipeline {
-    agent any
-    triggers {
-        cron('H 17 * * *')
-    }
-    options {
-        timestamps()
-        ansiColor("xterm")
-        disableConcurrentBuilds()
-    }
-    stages {
-        stage('build') {
-            steps {
-                sh 'docker build -t benediktkr/jenkins:lts .'
-            }
-        }
+@Library('shared-jenkins-pipelines') _
 
-        stage('push') {
-            steps {
-                sh 'docker push benediktkr/jenkins:lts'
-            }
-        }
-    }
-}
+dockerimg tag: 'lts', cron: 'H 17 * * *'
