@@ -8,7 +8,7 @@ ENV TERM=xterm-256color
 USER 0
 
 COPY docker.gpg /root/docker.gpg
-RUN cat /root/docker.gpg | apt-key add -
+RUN apt-key add /root/docker.gpg
 
 RUN apt-get update \
         && apt-get install -y ca-certificates software-properties-common apt-utils \
