@@ -12,7 +12,9 @@ RUN apt-key add /root/docker.gpg
 
 RUN apt-get update \
         && apt-get install -y ca-certificates software-properties-common apt-utils \
-        && apt-add-repository "deb [arch=amd64] https://download.docker.com/linux/debian $(lsb_release -cs) stable" \
+        && apt-add-repository "deb [arch=amd64] https://download.docker.com/linux/debian $(lsb_release -cs) stable"
+
+RUN apt-get update \
         && apt-get install -y docker-ce-cli sudo \
                               python3 python3-pip python3-dev python3-venv \
                               build-essential  \
