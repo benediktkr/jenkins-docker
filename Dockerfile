@@ -14,12 +14,10 @@ RUN apt-get update \
         && apt-get install -y ca-certificates software-properties-common apt-utils \
         && apt-add-repository "deb [arch=amd64] https://download.docker.com/linux/debian $(lsb_release -cs) stable"
 
-RUN apt-get update \
-        && apt-get install -y docker-ce-cli sudo \
-                              python3 python3-pip python3-dev python3-venv \
-                              build-essential  \
-                              ruby ruby-dev rubygems \
-        && gem install --no-document fpm
+RUN apt-get update && apt-get install -y docker-ce-cli sudo tree\
+        python3 python3-pip python3-dev python3-venv \
+        build-essential dpkg-dev dpkg-sig ruby ruby-dev \
+        rubygems && gem install --no-document fpm
 
 RUN python3 -m pip install poetry pyyaml loguru
 
